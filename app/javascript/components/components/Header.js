@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Nav, NavItem, NavbarBrand, NavbarToggler, Collapse, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText } from 'reactstrap'
+import { Nav, NavItem, NavbarBrand, NavbarToggler, Collapse, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
 import { Navbar } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 
@@ -51,16 +51,22 @@ class Header extends Component {
                                     Users
                                 </DropdownToggle>
                                 <DropdownMenu end>
-                                    <DropdownItem>
-                                        <a href={new_user_route} className="nav-link" > Sign Up</a>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        <a href={sign_in_route} className="nav-link" > Sign In </a>
-                                    </DropdownItem>
+                                    {!logged_in &&
+                                        <DropdownItem>
+                                            <a href={new_user_route} className="nav-link" > Sign Up</a>
+                                        </DropdownItem>
+                                    }
+                                    {!logged_in &&
+                                        <DropdownItem>
+                                            <a href={sign_in_route} className="nav-link" > Sign In </a>
+                                        </DropdownItem>
+                                    }
                                     <DropdownItem divider />
-                                    <DropdownItem>
-                                        <a href={sign_out_route} className="nav-link" > Sign Out</a>
-                                    </DropdownItem>
+                                    {logged_in &&
+                                        <DropdownItem>
+                                            <a href={sign_out_route} className="nav-link" > Sign Out</a>
+                                        </DropdownItem>
+                                    }
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Collapse>
@@ -68,19 +74,6 @@ class Header extends Component {
                     <h1 className='center'> Welcome to Apartment Finder! </h1>
                     <h3 className='center'> Find local apartments in your area! </h3>
                 </div>
-
-
-                {/* <h1 className='center'> Welcome to Apartment Finder! </h1>
-                <h3 className='center'> Find local apartments in your area! </h3>
-                <Nav>
-                    <NavItem>
-                        <a href={new_user_route} className="nav-link" > Sign Up</a>
-                        <a href={sign_in_route} className="nav-link" > Sign In </a>
-                        <a href={sign_out_route} className="nav-link" > Sign Out</a>
-                    </NavItem>
-                    <NavLink to="/"> Home </NavLink>
-                    <NavLink to="/Apartments"> View Available Apartments </NavLink>
-                </Nav> */}
             </>
         )
     }

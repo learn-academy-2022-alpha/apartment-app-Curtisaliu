@@ -13,16 +13,13 @@ import {
 class App extends Component {
   render() {
     return (
-      <>
-        <Router>
-          <Header {...this.props} />
-          {/* <Navigation /> */}
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/" component={Apartment} />
-          </Switch>
-        </Router>
-      </>
+      <Router>
+        <Header {...this.props} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Apartment} />
+        </Switch>
+      </Router>
     )
   }
 }
