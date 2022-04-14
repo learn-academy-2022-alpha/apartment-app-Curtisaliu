@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import Home from './pages/Home'
-import Header from './Header'
+import Header from './components/Header'
+import Apartment from './pages/Apartment'
+
 
 import {
   BrowserRouter as Router,
@@ -17,6 +19,7 @@ class App extends Component {
           {/* <Navigation /> */}
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Apartment} />
           </Switch>
         </Router>
       </>
